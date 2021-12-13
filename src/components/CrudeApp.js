@@ -10,41 +10,41 @@ import React, { useState } from 'react';
 
 const initialDB= [
     {
-        first : "Pedro",
+        firstname : "Pedro",
         lastname: "Gonzalez",
         id :1
 
     } ,
     {
-        first : "Juan",
+        firstname : "Juan",
         lastname: "Gomez",
         id :2
 
     }
     ,
     {
-        first : "Luiz ",
+        firstname : "Luiz ",
         lastname: "Martinez",
         id :3
 
     }
     ,
     {
-        first : "Gloria",
+        firstname : "Gloria",
         lastname: "Rodriguez",
         id :4
 
     }
     ,
     {
-        first : "Ana",
+        firstname : "Ana",
         lastname: "Pedraza",
         id :5
 
     }
     ,
     {
-        first : "Jose",
+        firstname : "Jose",
         lastname: "Martinez",
         id :6
 
@@ -56,13 +56,25 @@ const initialDB= [
 
 const CrudeApp = () => {
 
+  const [dataToEdit, setDataToEdit] = useState(null);
+
     const [db, setDb] = useState(initialDB);
+
+    const createElement = (data) => {
+        data.id=Date.now();
+        setDb([...db, data]);
+    }
+    const updateElement =(data) =>{
+        let newdata=db.map((el)=> (el.id===data.id?data:el));
+        setDb(newdata);
+    }
+
 
     return (
         <>
          <h1>Ejercicios Crude app</h1>   
-         <CrudForm/>
-         <CrudTable data ={db}/>
+         <CrudForm createElement={createElement} updateElement={updateElement} dataToEdit={dataToEdit} setDataToEdit={setDataToEdit}/>
+         <CrudTable data ={db} setDataToEdit={setDataToEdit}/>
         </>
     )
 }
