@@ -1,64 +1,35 @@
 
 import CrudForm from './CrudForm'
 import CrudTable from './CrudTable'
-import React, { useState } from 'react';
+import React, { useState , useEffect} from 'react';
+import {helpHttp} from '../helper/helpHttp'
+
+const CrudeApi = () => {
+
+    const [dataToEdit, setDataToEdit] = useState(null);
+    const [db, setDb] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
+
+    let url="http://localhost:5000/empleados";
+    let api=helpHttp();
 
 
 
+    useEffect(() => {
+       api.get(url).then((res)=> {
+           if(!res.err)
+           {
+                setDb(res);
+           }
+           else{
+               setDb([]);
+           }
+       });
+    }, []);
 
 
 
-const initialDB= [
-    {
-        firstname : "Pedro",
-        lastname: "Gonzalez",
-        id :1
-
-    } ,
-    {
-        firstname : "Juan",
-        lastname: "Gomez",
-        id :2
-
-    }
-    ,
-    {
-        firstname : "Luiz ",
-        lastname: "Martinez",
-        id :3
-
-    }
-    ,
-    {
-        firstname : "Gloria",
-        lastname: "Rodriguez",
-        id :4
-
-    }
-    ,
-    {
-        firstname : "Ana",
-        lastname: "Pedraza",
-        id :5
-
-    }
-    ,
-    {
-        firstname : "Jose",
-        lastname: "Martinez",
-        id :6
-
-    }
-
-]
-
-
-
-const CrudeApp = () => {
-
-  const [dataToEdit, setDataToEdit] = useState(null);
-
-    const [db, setDb] = useState(initialDB);
 
     const createElement = (data) => {
         data.id=Date.now();
@@ -83,11 +54,13 @@ const CrudeApp = () => {
 
     return (
         <>
-         <h1>Ejercicios Crude app</h1>   
+         <h1>Ejercicios Crude api</h1>   
          <CrudForm createElement={createElement} updateElement={updateElement} dataToEdit={dataToEdit} setDataToEdit={setDataToEdit} />
+
+        
          <CrudTable data ={db} setDataToEdit={setDataToEdit} deleteElement={deleteElement}/>
         </>
     )
 }
 
-export default CrudeApp
+export default CrudeApi

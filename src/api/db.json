@@ -1,0 +1,34 @@
+{
+  "empleados": [
+    {
+      "firstname": "Pedro",
+      "lastname": "Gonzalez",
+      "id": 1
+    },
+    {
+      "firstname": "Juan",
+      "lastname": "Gomez",
+      "id": 2
+    },
+    {
+      "firstname": "Luiz ",
+      "lastname": "Martinez",
+      "id": 3
+    },
+    {
+      "firstname": "Gloria",
+      "lastname": "Rodriguez",
+      "id": 4
+    },
+    {
+      "firstname": "Ana",
+      "lastname": "Pedraza",
+      "id": 5
+    },
+    {
+      "firstname": "Jose",
+      "lastname": "Martinez",
+      "id": 6
+    }
+  ]
+}
