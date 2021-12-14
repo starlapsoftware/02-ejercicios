@@ -54,14 +54,24 @@ const initialDB= [
 
 
 
+
+
+
 const CrudeApp = () => {
 
     const [db, setDb] = useState(initialDB);
 
+
+    const createElement = (data)=>{
+        data.id=Date.now();
+        setDb([...db, data]);
+    }
+
+
     return (
         <>
          <h1>Ejercicios Crude app</h1>   
-         <CrudForm/>
+         <CrudForm createElement={createElement}/>
          <CrudTable data ={db}/>
         </>
     )
