@@ -54,16 +54,21 @@ const initialDB= [
 
 
 
+
+
+
 const CrudeApp = () => {
 
   const [dataToEdit, setDataToEdit] = useState(null);
 
     const [db, setDb] = useState(initialDB);
 
-    const createElement = (data) => {
+
+    const createElement = (data)=>{
         data.id=Date.now();
         setDb([...db, data]);
     }
+
     const updateElement =(data) =>{
         let newdata=db.map((el)=> (el.id===data.id?data:el));
         setDb(newdata);
@@ -79,6 +84,7 @@ const CrudeApp = () => {
            return;
        }
     }
+
 
 
     return (

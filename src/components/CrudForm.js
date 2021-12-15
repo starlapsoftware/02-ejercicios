@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react';
 
 
-
 const initialElement={
     firstname:"",
     lastname:"",
     id:null
-}
 
+}
 const CrudForm = ({createElement, updateElement, dataToEdit, setDataToEdit}) => {
     
-    const [form, setForm] = useState(initialElement)
+    const [form, setForm] = useState(initialElement);
 
     useEffect(() => {
         if(dataToEdit)
@@ -20,7 +19,7 @@ const CrudForm = ({createElement, updateElement, dataToEdit, setDataToEdit}) => 
         else{
             setForm(initialElement);
         }
-    }, [dataToEdit])
+    }, [dataToEdit]);
 
     const handlerOnSummit = (e) => {
         e.preventDefault();
@@ -65,5 +64,4 @@ const CrudForm = ({createElement, updateElement, dataToEdit, setDataToEdit}) => 
         </>
     )
 }
-
-export default CrudForm;
+export default CrudForm
