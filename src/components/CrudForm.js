@@ -1,49 +1,15 @@
 import React, { useState, useEffect } from 'react';
 
 
-const initialData={
-    first:"",
-    lastname:"",
-    id:null
-
-}
-
-
-
-const CrudForm = ({createElement}) => {
-
-    const [form, setForm] = useState(initialData);
-
-    const handlerOnSummit = (e) => {
-        e.preventDefault();
-        if(!form.first || !form.lastname)
-        {
-            alert("Datos incompletos");
-            return;
-        }
-        else{
-            createElement(form);
-        }
-
-
-    }
-    const handlerOnChange = (e) => {
-        setForm({
-            ...form, [e.target.name] : e.target.value,
-        });
-       
-    }
-    const handlerLimpliar = () => {
-        setForm(initialData);        
 const initialElement={
     firstname:"",
     lastname:"",
     id:null
-}
 
+}
 const CrudForm = ({createElement, updateElement, dataToEdit, setDataToEdit}) => {
     
-    const [form, setForm] = useState(initialElement)
+    const [form, setForm] = useState(initialElement);
 
     useEffect(() => {
         if(dataToEdit)
@@ -53,7 +19,7 @@ const CrudForm = ({createElement, updateElement, dataToEdit, setDataToEdit}) => 
         else{
             setForm(initialElement);
         }
-    }, [dataToEdit])
+    }, [dataToEdit]);
 
     const handlerOnSummit = (e) => {
         e.preventDefault();
@@ -98,5 +64,4 @@ const CrudForm = ({createElement, updateElement, dataToEdit, setDataToEdit}) => 
         </>
     )
 }
-
 export default CrudForm

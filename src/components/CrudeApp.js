@@ -69,6 +69,23 @@ const CrudeApp = () => {
         setDb([...db, data]);
     }
 
+    const updateElement =(data) =>{
+        let newdata=db.map((el)=> (el.id===data.id?data:el));
+        setDb(newdata);
+    }
+    const deleteElement=(id)=>{
+       let isDelete= window.confirm( `¿Estás seguro de eliminar el registro con el id '${id}'?`);
+       if(isDelete)
+       {
+        let newdata=db.filter((el)=>el.id!==id);
+        setDb(newdata);
+       }
+       else{
+           return;
+       }
+    }
+
+
 
     return (
         <>
