@@ -14,7 +14,7 @@ const CrudeApi = () => {
     const [error, setError] = useState(null);
 
     let api = helpHttp();
-    let url="http://localhost:5000/empleado";
+    let url="http://localhost:5000/empleados";
     
 
 

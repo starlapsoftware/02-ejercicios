@@ -1,9 +1,10 @@
-const SongLyrics = () => {
-    return (
-        <div>
-            <h2>Letra de las canciones</h2>
-        </div>
-    )
-}
+const SongLyrics = ({ title, lyrics }) => {
+  return (
+    <section>
+      <h3>{title}</h3>
+      <blockquote style={{ whiteSpace: "pre-wrap" }}>{lyrics}</blockquote>
+    </section>
+  );
+};
 
-export default SongLyrics
+export default SongLyrics;
