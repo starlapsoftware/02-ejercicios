@@ -1,5 +1,6 @@
 /* import CrudeApi from "./components/CrudeApi";
 import CrudeApp from "./components/CrudeApp"; */
+import ContactForm from "./components/ContactForm";
 import SelectAnimados from "./components/SelectAnimados";
 
 import SongSearch from "./components/SongSearch";
@@ -9,7 +10,8 @@ function App() {
     <>
       <h2>Ejercicios con react</h2>
       <hr />
-      <SelectAnimados />
+      <ContactForm/>
+      {/* <SelectAnimados /> */}
 
       {/* <SongSearch/>
        <hr/>
